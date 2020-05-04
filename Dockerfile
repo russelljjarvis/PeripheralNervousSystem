@@ -19,9 +19,14 @@ RUN apt-get update && \
     gcc && \
     rm -rf /var/lib/apt/lists/*
     
+RUN apt-get upgrade    
     
-    
+#RUN apt-get install -y libncursesw5-dev 
+RUN apt-get install -y ncurses-base ncurses-bin
+# ncurses-term 
 
+RUN apt-get update && apt-get install -y bzip2 ca-certificates automake libtool  \
+                       libncurses5-dev libreadline-dev libgsl0-dev cmake ssh
 WORKDIR $HOME
 RUN \
   wget http://www.neuron.yale.edu/ftp/neuron/versions/v7.7/nrn-7.7.tar.gz && \
@@ -30,9 +35,9 @@ RUN \
 
 WORKDIR $HOME/nrn-7.7
 ENV PATH /usr/bin/python3/python:/opt/conda/bin:/opt/conda/bin/conda:/opt/conda/bin/python:$PATH
-RUN ./configure --prefix=`pwd` --with-paranrn --without-iv --with-nrnpython=/opt/conda/bin/python3
+RUN ./configure --prefix=`pwd` --without-iv --with-nrnpython=/opt/conda/bin/python3
 RUN sudo make all && \
-   make install
+     make install
 
 RUN make all
 RUN make install
