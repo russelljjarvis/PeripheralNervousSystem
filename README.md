@@ -3,7 +3,9 @@ Peripheral Nervous System Fiber radius
 
 
 To install PyPNS run.
-git fetch origin master (to get the dockerfile in this repository).
+`git fetch origin master`
+
+(to get the [dockerfile](https://github.com/russelljjarvis/PeripherlNervousSystem/blob/master/Dockerfile) in this repository).
 
 inside the repository run:
 
