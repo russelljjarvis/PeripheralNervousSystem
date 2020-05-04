@@ -46,7 +46,9 @@ ENV PATH $NEURON_HOME/bin:$PATH
 
 USER root
 RUN chown -R jovyan $HOME
-WORKDIR work
+WORKDIR $HOME/work/extra_work
+WORKDIR $HOME/work
+
 RUN pip install pickle
 
 RUN git clone https://github.com/chlubba/PyPNS
