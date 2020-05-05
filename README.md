@@ -15,5 +15,5 @@ sudo docker build -t "pypns" .
 
 To mount a directory (i suggest the directory for this git repository) to the running docker container use the -v for volume argument:
 ```sh
-docker run -v $pwd$:work/extra_code pypns
+docker run -v $pwd:work/extra_code pypns
 ```
