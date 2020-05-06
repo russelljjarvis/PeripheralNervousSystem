@@ -1,20 +1,5 @@
-
-language: python
-
 services:
   - docker
-
-os:
-  - linux
-
-
-
-python:
-  - 3.6
-
-notifications:
-  email: true
-
 
 install:
 - docker build -t pns .
