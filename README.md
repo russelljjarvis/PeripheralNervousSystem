@@ -1,6 +1,8 @@
-Peripheral Nervous System Fiber radius
+# Peripheral Nervous System Fiber radius
 # NEURON+Python code
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/russelljjarvis/PeripherlNervousSystem/master)
+
+[![Build Status](https://travis-ci.com/russelljjarvis/PeripheralNervousSystem.svg?branch=master)](https://travis-ci.com/russelljjarvis/PeripheralNervousSystem)
 
 To install PyPNS run.
 `git fetch origin master`
