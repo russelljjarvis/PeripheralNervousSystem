@@ -2,8 +2,7 @@
 # NEURON+Python code
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/russelljjarvis/PeripherlNervousSystem/master)
 
-[![Build Status](https://travis-ci.com/russelljjarvis/PeripheralNervousSystem.svg?branch=master)](https://travis-ci.com/russelljjarvis/PeripheralNervousSystem)
-
+ 
 To install PyPNS run.
 `git fetch origin master`
 
@@ -27,4 +26,4 @@ alias dipy1='cd pypns; docker run -v -e USERID=$UID $pwd:work/extra_code pypns n
 Evidence it works.
 click my-binder make new ipython3 notebook
 
-Enter code like in this picture [PyPNS_build.png](PyPNS_build.png)
+Enter code like in this picture ![PyPNS_build.png](PyPNS_build.png)
