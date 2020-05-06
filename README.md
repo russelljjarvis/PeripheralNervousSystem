@@ -23,3 +23,8 @@ cd pypns; docker run -v -e USERID=$UID $pwd:work/extra_code pypns notebook --ip=
 ```
 alias dipy1='cd pypns; docker run -v -e USERID=$UID $pwd:work/extra_code pypns notebook --ip=0.0.0.0 --NotebookApp.disable_check_xsrf=True'
 ```
+
+Evidence it works.
+click my-binder make new ipython3 notebook
+
+Enter code like in this picture.
