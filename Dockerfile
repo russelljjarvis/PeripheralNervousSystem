@@ -44,4 +44,5 @@ RUN conda clean --all -f -y && \
     fix-permissions /home/$NB_USER
 USER $NB_UID
 WORKDIR $HOME/work
+ENTRYPOINT /bin/bash
 
