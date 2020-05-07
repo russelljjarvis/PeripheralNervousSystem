@@ -42,7 +42,7 @@ RUN nrnivmodl
 RUN conda clean --all -f -y && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
-USER $NB_UID
-WORKDIR $HOME/work
+RUN chown -R jovyan $HOME
+WORKDIR $HOME 
 ENTRYPOINT /bin/bash
 
