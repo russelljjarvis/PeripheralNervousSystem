@@ -18,12 +18,12 @@ RUN apt-get update && \
     gfortran \
     gcc && \
     rm -rf /var/lib/apt/lists/*
-    
-RUN apt-get upgrade    
-    
-#RUN apt-get install -y libncursesw5-dev 
+
+RUN apt-get upgrade
+
+#RUN apt-get install -y libncursesw5-dev
 RUN apt-get install -y ncurses-base ncurses-bin
-# ncurses-term 
+# ncurses-term
 
 RUN apt-get update && apt-get install -y bzip2 ca-certificates automake libtool  \
                        libncurses5-dev libreadline-dev libgsl0-dev cmake ssh
@@ -67,6 +67,9 @@ RUN conda clean --all -f -y && \
 
 
 USER $NB_UID
-
+WORKDIR $HOME
+RUN ls -ltr
 RUN python -c "import PyPNS"
+#CMD ["jupyter", "notebook", "--no-browser","--NotebookApp.token=''","--NotebookApp.password=''"]
+#ENTRYPOINT jupyter notebook --no-browser --NotebookApp.token='' --NotebookApp.password='' 
 
