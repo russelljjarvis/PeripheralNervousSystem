@@ -49,5 +49,7 @@ RUN conda clean --all -f -y && \
 RUN python3 -c "import neuron"
 RUN python3 -c "import PyPNS"
 RUN python3 -c "import tk"
+RUN python3 -c "import matplotlib as mpl"
+RUN python3 -c "mpl.use('tk')"
 WORKDIR $HOME 
 ENTRYPOINT /bin/bash
