@@ -28,24 +28,24 @@ RUN sudo make all && \
      make install
 USER jovyan
 WORKDIR src/nrnpython
-RUN python3 setup.py install
-RUN python3 -c "import neuron"
+RUN python setup.py install
+RUN python -c "import neuron"
 ENV NEURON_HOME $HOME/nrn-7.7/x86_64
 ENV PATH $NEURON_HOME/bin:$PATH
 WORKDIR $HOME/work/extra_work
 WORKDIR $HOME/work
+RUN pip install --upgrade matplotlib
 RUN conda install tk
+RUN python -c "import matplotlib as mpl;mpl.use('TkAgg')"
+RUN python -c "import tk"
 RUN git clone https://github.com/chlubba/PyPNS
 WORKDIR PyPNS
 RUN pip install -e .
 
-#RUN pip install --upgrade matplotlib
-RUN python -c "import matplotlib as mpl;mpl.use('TkAgg')"
 WORKDIR mods
 RUN nrnivmodl
-RUN python3 -c "import neuron"
-RUN python3 -c "import PyPNS"
-#RUN python3 -c "import tk"
+RUN python -c "import neuron"
+RUN python -c "import PyPNS"
 WORKDIR $HOME/work/PyPNS/
 RUN ls mods/*
 RUN cp mods/*.mod .
