@@ -34,16 +34,18 @@ ENV NEURON_HOME $HOME/nrn-7.7/x86_64
 ENV PATH $NEURON_HOME/bin:$PATH
 WORKDIR $HOME/work/extra_work
 WORKDIR $HOME/work
+RUN conda install tk
 RUN git clone https://github.com/chlubba/PyPNS
 WORKDIR PyPNS
 RUN pip install -e .
-RUN pip install tk
-RUN python -c "import tk;import matplotlib as mpl;mpl.use('TkAgg')"
+
+#RUN pip install --upgrade matplotlib
+RUN python -c "import matplotlib as mpl;mpl.use('TkAgg')"
 WORKDIR mods
 RUN nrnivmodl
 RUN python3 -c "import neuron"
 RUN python3 -c "import PyPNS"
-RUN python3 -c "import tk"
+#RUN python3 -c "import tk"
 WORKDIR $HOME/work/PyPNS/
 RUN ls mods/*
 RUN cp mods/*.mod .
