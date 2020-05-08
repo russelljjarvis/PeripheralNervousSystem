@@ -27,27 +27,27 @@ USER root
 RUN sudo make all && \
      make install
 USER jovyan
-
 WORKDIR src/nrnpython
 RUN python3 setup.py install
 RUN python3 -c "import neuron"
 ENV NEURON_HOME $HOME/nrn-7.7/x86_64
 ENV PATH $NEURON_HOME/bin:$PATH
-USER jovyan
 WORKDIR $HOME/work/extra_work
 WORKDIR $HOME/work
 RUN git clone https://github.com/chlubba/PyPNS
 WORKDIR PyPNS
 RUN pip install -e .
 RUN pip install tk
-RUN python3 -c "import sys;print(sys.path)"
+RUN python -c "import tk;import matplotlib as mpl;mpl.use('TkAgg')"
 WORKDIR mods
 RUN nrnivmodl
-RUN conda clean --all -f -y && \
-    fix-permissions $CONDA_DIR && \
-    fix-permissions /home/$NB_USERs
 RUN python3 -c "import neuron"
 RUN python3 -c "import PyPNS"
 RUN python3 -c "import tk"
-WORKDIR $HOME 
-ENTRYPOINT /bin/bash
+WORKDIR $HOME/work/PyPNS/
+RUN ls mods/*
+RUN cp mods/*.mod .
+RUN nrnivmodl
+RUN python test.py
+WORKDIR $HOME
+#ENTRYPOINT /bin/bash
