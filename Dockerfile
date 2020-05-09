@@ -60,4 +60,11 @@ RUN cp mods/*.mod .
 RUN nrnivmodl
 RUN python test.py
 WORKDIR $HOME
+ARG JUPYTERHUB_VERSION=0.8.1
+
+RUN pip install --no-cache jupyterhub==${JUPYTERHUB_VERSION}
+ENV LANG=en_US.UTF-8
+
+USER nobody
+CMD ["jupyterhub"]
 #ENTRYPOINT /bin/bash
